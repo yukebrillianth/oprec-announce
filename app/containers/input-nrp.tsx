@@ -48,7 +48,7 @@ export const InputNRP = () => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center [@media(max-height:800px)]:pb-48">
       <RunningText className="mt-5" />
 
       <div className="flex flex-col items-center w-full mt-32">
@@ -72,14 +72,14 @@ export const InputNRP = () => {
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="mt-16 mb-16 max-[350px]:mt-4 w-full px-5 md:max-w-[90%] xl:max-w-[40%]"
+            className="mt-16 mb-16 max-[350px]:mt-4 min-[900px]:mb-20 w-full px-5 md:max-w-[90%] xl:max-w-[40%] z-[101]"
           >
-            <div className="flex gap-2 max-md:flex-col">
+            <div className="flex gap-2 max-md:flex-col z-[101]">
               <Input
                 id="nrp"
                 label="Enter NRP"
                 placeholder="Example: 5026231000"
-                className="py-[15px]"
+                className="py-[15px] z-[101]"
                 validation={{
                   required: "NRP cannot be empty!",
                   pattern: {

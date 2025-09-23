@@ -1,7 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NextImage from "@/components/NextImage";
 import { Participant } from "@/types/participant";
 
 const AcceptedPage = ({ userData }: { userData: Participant }) => {
+  if (typeof window !== "undefined") {
+    const w = window as any;
+    if (!w.__rejectedAudioPlayed) {
+      w.__rejectedAudioPlayed = true;
+      const audio = new Audio("/accepted.mp3");
+      audio.play().catch(() => {});
+    }
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen h-full px-5">
       <NextImage
