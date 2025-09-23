@@ -3,13 +3,111 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #141532;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+
+  --color-gradient-blue-turquoise: linear-gradient(
+    77deg,
+    #61a7e0 6.35%,
+    #6ddccf 77.85%
+  );
+
+  --color-gradient-blue-dark: linear-gradient(
+    173deg,
+    #151131 13.31%,
+    #61a7e0 130.67%
+  );
+
+  --color-gradient-blue-green: linear-gradient(
+    198deg,
+    #61a7e0 43.85%,
+    #6ddccf 68.07%
+  );
+
+  --color-gradient-white-blue: linear-gradient(
+    91deg,
+    #fff 6.97%,
+    #6ddccf 14.43%,
+    #abd9ff 51.45%,
+    #8ddae8 71.68%,
+    #abd9ff 79.46%,
+    #6ddccf 92.86%,
+    #fff 100.74%
+  );
+
+  --font-sans: var(--font-montserrat);
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@layer utilities {
+  .bg-gradient-blue-turquoise {
+    background-image: var(--color-gradient-blue-turquoise);
+  }
+
+  .bg-gradient-blue-dark {
+    background-image: var(--color-gradient-blue-dark);
+  }
+
+  .bg-gradient-blue-green {
+    background-image: var(--color-gradient-blue-green);
+  }
+
+  .bg-gradient-white-blue {
+    background-image: var(--color-gradient-white-blue);
+  }
+
+  .bg-paper {
+    background: url("/background.png") lightgray 0px 0px / 100% 100% no-repeat;
+  }
+
+  .text-gradient-blue-green {
+    background: var(--color-gradient-blue-green);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-blue-turquoise {
+    background: var(--color-gradient-blue-turquoise);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-white-blue {
+    background: var(--color-gradient-white-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +120,4 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
